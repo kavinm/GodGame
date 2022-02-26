@@ -163,8 +163,9 @@ contract Traits is Ownable, ITraits {
       s.isWorshipper ? drawTrait(traitData[2 + shift][s.clothes]) : '',
       drawTrait(traitData[3 + shift][s.eyes]),
       s.isWorshipper ? drawTrait(traitData[4 + shift][s.nose]) : '',
-      drawTrait(traitData[5 + shift][s.beard]),
-      s.isWorshipper ? drawTrait(traitData[6 + shift][s.mouth]) : drawTrait(traitData[6 + shift][s.mouth]),
+      s.isWorshipper ? '' : drawTrait(traitData[6 + shift][s.mouth]), //clothes need to be drawn first without mouth being drawn
+      drawTrait(traitData[5 + shift][s.beard]), // beard and weapon drawn
+      s.isWorshipper ? drawTrait(traitData[6 + shift][s.mouth]) : '', // mouth drawn after beard
       s.isWorshipper ? drawTrait(traitData[7 + shift][s.feet]) : ''
     ));
 
