@@ -56,8 +56,8 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
         // human
         // tone
         //4
-        rarities[0] = [100, 100, 100, 100, 70, 80, 70, 80];
-        aliases[0] = [2, 1, 4, 5, 3, 6, 3, 0];
+        rarities[0] = [130, 130, 130, 130, 80, 80, 80, 80];
+        aliases[0] = [2, 1, 3, 1, 6, 2, 3, 4];
         // head
         //18
         rarities[1] = [
@@ -187,14 +187,14 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
         aliases[6] = [0, 2, 4, 1, 3];
         // Feet
         rarities[7] = [220, 190, 190, 60, 50, 60, 60, 50];
-        aliases[7] = [2, 1, 2, 0, 1, 5, 3 6];
+        aliases[7] = [2, 1, 2, 0, 1, 5, 3, 7];
         // divinityIndex
         rarities[8] = [255];
         aliases[8] = [0];
 
         // GODS
         // tone
-        rarities[9] = [120, 120, 120, 120, 50, 50, 30];
+        rarities[9] = [120, 120, 120, 120, 80, 80, 50];
         aliases[9] = [2, 3, 2, 0, 1, 5, 3];
         // halo
         rarities[10] = [10, 100, 180, 250];
