@@ -127,8 +127,8 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
         ];
         // clothes
         //8
-        rarities[2] = [100, 100, 120, 90, 180, 140, 90, 150, 150, 120, 100, 120, 90, 100, 120, 90];
-        aliases[2] = [4, 6, 2, 0, 1, 3, 2, 5, 8, 12, 10, 9, 7, 11, 13, 14];
+        rarities[2] = [100, 100, 120, 90, 180, 140, 90, 150, 150, 120, 100, 120, 90, 100, 100, 90];
+        aliases[2] = [12, 6, 2, 0, 1, 3, 2, 5, 8, 4, 10, 9, 7, 11, 13, 14];
         // eyes
         //17
         rarities[3] = [
@@ -181,13 +181,13 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
         // facial hair
         //5
         rarities[5] = [80, 225, 227, 228, 112, 220, 140];
-        aliases[5] = [3, 1, 2, 3, 4, 0, 5];
+        aliases[5] = [6, 1, 2, 3, 4, 0, 5];
         // Mouth
         rarities[6] = [190, 227, 112, 200, 180];
         aliases[6] = [0, 2, 4, 1, 3];
         // Feet
         rarities[7] = [220, 190, 190, 60, 50, 60, 60, 50];
-        aliases[7] = [7, 3, 2, 0, 1, 5, 4, 6];
+        aliases[7] = [2, 1, 2, 0, 1, 5, 3 6];
         // divinityIndex
         rarities[8] = [255];
         aliases[8] = [0];
@@ -195,7 +195,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
         // GODS
         // tone
         rarities[9] = [120, 120, 120, 120, 50, 50, 30];
-        aliases[9] = [4, 3, 2, 0, 1, 5, 6];
+        aliases[9] = [2, 3, 2, 0, 1, 5, 3];
         // halo
         rarities[10] = [10, 100, 180, 250];
         aliases[10] = [0, 1, 2, 3];
@@ -344,8 +344,20 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
         view
         returns (uint8)
     {
-        uint8 trait = uint8(seed) % uint8(rarities[traitType].length);
-        if (seed >> 8 < rarities[traitType][trait]) return trait;
+        uint8 trait = uint8(seed) % uint8(rarities[traitType].length); // seed value is mod'd to fit within length of rarities length
+                                                                    // uint16 has a max value of 65535
+                                                                    // shift '>>' works as follows x>>y becomes x / (2 ^ y)
+                                                                    // 65535 turns into 255.99 or 255 integer the max value of the uint8 and max value in traits array
+        if (seed >> 8 < rarities[traitType][trait]) return trait; // seed is shifted with 8 (2^8 or 8 bit) then checks if number 
+                                                                 //that corresponds to rarity is less than that new seed value
+                                                                 // ex. if the seed = 21239 new seed = 82.9 or 82 which would then check with the traits array
+                                                                 // therefore, the larger the value in the trait array, the more likely it is to be picked
+                                                                 // if the value is smaller it goes to the alias to pick
+                                                                 // not all indeces have to be present in the alias array
+                                                                 // as it is picking up only on the traits the random seed does not return with after the shift
+                                                                 //if not the trait selected will use the alias array to pick the traits
+                                                                 // this is why the alias array has to hold numbers that fit between the length of their trait data
+                                                                 // which also means alias and rarities arrays haave to be of equal length as well
         return aliases[traitType][trait];
     }
 
