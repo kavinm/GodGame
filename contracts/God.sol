@@ -345,8 +345,8 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
         returns (uint8)
     {
         uint8 trait = uint8(seed) % uint8(rarities[traitType].length); // seed value is mod'd to fit within length of rarities length
-                                                                    // uint16 has a max value of 65535
-                                                                    // shift '>>' works as follows x>>y becomes x / (2 ^ y)
+                                                                    // uint16 has a max value of 65535 so seed can be any value between 0 and 65535
+                                                                    // shift operator '>>' works as follows x>>y becomes x / (2 ^ y)
                                                                     // 65535 turns into 255.99 or 255 integer the max value of the uint8 and max value in traits array
         if (seed >> 8 < rarities[traitType][trait]) return trait; // seed is shifted with 8 (2^8 or 8 bit) then checks if number 
                                                                  //that corresponds to rarity is less than that new seed value
@@ -356,6 +356,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
                                                                  // not all indeces have to be present in the alias array
                                                                  // as it is picking up only on the traits the random seed does not return with after the shift
                                                                  //if not the trait selected will use the alias array to pick the traits
+                                                                 // therefore if trait index is not in the alias array it makes it more rare
                                                                  // this is why the alias array has to hold numbers that fit between the length of their trait data
                                                                  // which also means alias and rarities arrays haave to be of equal length as well
         return aliases[traitType][trait];
