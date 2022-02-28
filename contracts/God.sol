@@ -64,28 +64,28 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
             190,
             215,
             200,
-            100,
             110,
+            130,
             135,
             160,
             185,
-            80,
+            200,
             200,
             210,
             200,
             200,
-            80,
+            200,
             100,
             100,
             180,
             180,
             200,
             180,
-            200,
-            180,
-            200,
-            180,
-            200,
+            100,
+            100,
+            120,
+            120,
+            100,
             200,
             180,
             200,
@@ -139,7 +139,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
             140,
             224,
             147,
-            84,
+            90,
             228,
             140,
             224,
@@ -199,12 +199,12 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
         // halo
         rarities[10] = [10, 100, 180, 250];
         aliases[10] = [0, 1, 2, 3];
-        // ears
+        // 
         rarities[11] = [255];
         aliases[11] = [0];
         // head
-        rarities[12] = [100, 150, 100, 100, 100];
-        aliases[12] = [0, 4, 1, 3, 2];
+        rarities[12] = [70, 150, 100, 100, 100];
+        aliases[12] = [2, 4, 1, 3, 2];
 
         rarities[13] = [255];
         aliases[13] = [0];
@@ -213,7 +213,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
         rarities[14] = [
             200,
             220,
-            230,
+            100,
             234,
             234,
             150,
@@ -221,10 +221,10 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
             140,
             150,
             120,
-            100,
+            200,
             160
         ];
-        aliases[14] = [1, 2, 9, 0, 10, 8, 8, 4, 1, 0, 6, 8];
+        aliases[14] = [1, 3, 9, 0, 10, 8, 8, 4, 1, 0, 6, 8];
         // clothing
         rarities[15] = [140, 130, 165, 120, 100, 150, 160, 100];
         aliases[15] = [1, 4, 0, 6, 2, 3, 5, 3];
