@@ -172,11 +172,11 @@ contract Traits is Ownable, ITraits {
     uint256 womboCombo = bgColor(tokenId);
 
     return string(abi.encodePacked(
-      '<svg id="God" width="100%" height="100%" version="1.1" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <radialGradient id="radial" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad"> <stop offset="70%"   stop-color="#',
+      '<svg id="God" width="100%" height="100%" version="1.1" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> <radialGradient id="radial" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad"> <stop offset="60%"   stop-color="#',
       bgArr[womboCombo],
-      '" stop-opacity="1"/> <stop offset="200%" stop-color="#',
+      '" stop-opacity="1"/> <stop offset="80%" stop-color="#',
       radArr[womboCombo], 
-      '" stop-opacity="1"/></radialGradient> <rect x="9" y="4" width="22" height="32" style="fill:url(#radial)" />',
+      '" stop-opacity="1"/></radialGradient> <rect x="0" y="0" width="40" height="40" style="fill:url(#radial)" />',
       svgString,
       "</svg>"
     ));
