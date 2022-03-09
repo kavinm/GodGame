@@ -225,7 +225,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
             160
         ];
         aliases[14] = [1, 3, 9, 0, 10, 8, 8, 4, 1, 0, 6, 8];
-        // clothing
+        // clothing    12039 >> 8 =
         rarities[15] = [140, 130, 165, 120, 100, 150, 160, 100];
         aliases[15] = [1, 4, 0, 6, 2, 3, 5, 3];
         // feet
