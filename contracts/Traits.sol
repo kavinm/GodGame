@@ -1,4 +1,3 @@
-// SPDX-License-Identifier: MIT LICENSE
 
 pragma solidity ^0.8.0;
 import "./Ownable.sol";
@@ -264,7 +263,7 @@ contract Traits is Ownable, ITraits {
     ));
   }
 
-  /** BASE 64 - Written by Brech Devos */
+  // BASE 64 - Written by Brech Devos */
   
   string internal constant TABLE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
