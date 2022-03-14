@@ -253,7 +253,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
             require(
                 minted + amount <= PAID_TOKENS,
                 "All tokens on-sale already sold"
-            );
+            ); 
             require(amount * MINT_PRICE == msg.value, "Invalid payment amount");
         } else {
             require(msg.value == 0);

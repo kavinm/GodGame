@@ -1,9 +1,6 @@
-
 // Sources flattened with hardhat v2.8.0 https://hardhat.org
 
 // File contracts/IERC165.sol
-
-// SPDX-License-Identifier: MIT 
 
 pragma solidity ^0.8.0;
 
@@ -31,7 +28,7 @@ interface IERC165 {
 
 // File contracts/ERC165.sol
 
-// 
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -60,8 +57,6 @@ abstract contract ERC165 is IERC165 {
 
 
 // File contracts/IERC20.sol
-
-// 
 
 pragma solidity ^0.8.0;
 
@@ -146,8 +141,6 @@ interface IERC20 {
 
 // File contracts/IERC20Metadata.sol
 
-// 
-
 pragma solidity ^0.8.0;
 
 /**
@@ -175,8 +168,6 @@ interface IERC20Metadata is IERC20 {
 
 // File contracts/Context.sol
 
-// 
-
 pragma solidity ^0.8.0;
 
 /**
@@ -201,8 +192,6 @@ abstract contract Context {
 
 
 // File contracts/ERC20.sol
-
-// 
 
 pragma solidity ^0.8.0;
 
@@ -559,8 +548,6 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
 
 // File contracts/IERC721.sol
 
-// 
-
 pragma solidity ^0.8.0;
 
 /**
@@ -721,8 +708,6 @@ interface IERC721 is IERC165 {
 
 // File contracts/IERC721Receiver.sol
 
-// 
-
 pragma solidity ^0.8.0;
 
 /**
@@ -751,8 +736,6 @@ interface IERC721Receiver {
 
 // File contracts/IERC721Metadata.sol
 
-// 
-
 pragma solidity ^0.8.0;
 
 /**
@@ -778,8 +761,6 @@ interface IERC721Metadata is IERC721 {
 
 
 // File contracts/Address.sol
-
-// 
 
 pragma solidity ^0.8.0;
 
@@ -999,8 +980,6 @@ library Address {
 
 // File contracts/Strings.sol
 
-// 
-
 pragma solidity ^0.8.0;
 
 /**
@@ -1068,8 +1047,6 @@ library Strings {
 
 
 // File contracts/ERC721.sol
-
-// 
 
 pragma solidity ^0.8.0;
 
@@ -1482,8 +1459,6 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
 
 // File contracts/IERC721Enumerable.sol
 
-// 
-
 pragma solidity ^0.8.0;
 
 /**
@@ -1514,8 +1489,6 @@ interface IERC721Enumerable is IERC721 {
 
 
 // File contracts/ERC721Enumerable.sol
-
-// 
 
 pragma solidity ^0.8.0;
 
@@ -1707,8 +1680,6 @@ abstract contract ERC721Enumerable is ERC721, IERC721Enumerable {
 
 // File contracts/Ownable.sol
 
-// 
-
 pragma solidity ^0.8.0;
 
 /**
@@ -1780,8 +1751,6 @@ abstract contract Ownable is Context {
 
 // File contracts/FAITH.sol
 
-
-
 pragma solidity ^0.8.0;
 
 
@@ -1830,8 +1799,6 @@ contract FAITH is ERC20, Ownable {
 
 
 // File contracts/Pausable.sol
-
-// 
 
 pragma solidity ^0.8.0;
 
@@ -1923,8 +1890,6 @@ abstract contract Pausable is Context {
 
 // File contracts/IGod.sol
 
-//  LICENSE
-
 pragma solidity ^0.8.0;
 
 interface IGod {
@@ -1951,8 +1916,6 @@ interface IGod {
 
 // File contracts/ITemple.sol
 
-//  LICENSE
-
 pragma solidity ^0.8.0;
 
 interface ITemple {
@@ -1965,8 +1928,6 @@ interface ITemple {
 
 // File contracts/ITraits.sol
 
-//  LICENSE 
-
 pragma solidity ^0.8.0;
 
 interface ITraits {
@@ -1975,8 +1936,6 @@ interface ITraits {
 
 
 // File contracts/God.sol
-
-//  LICENSE
 
 pragma solidity ^0.8.0;
 
@@ -2501,8 +2460,6 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
 
 // File contracts/Temple.sol
 
-//  LICENSE
-
 pragma solidity ^0.8.0;
 
 
@@ -2915,8 +2872,6 @@ contract Temple is Ownable, IERC721Receiver, Pausable {
 
 
 // File contracts/Traits.sol
-
-//  LICENSE
 
 pragma solidity ^0.8.0;
 
