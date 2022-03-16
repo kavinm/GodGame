@@ -245,10 +245,10 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
      * mint a token - 90% Worshippers, 10% Gods
      * The first 20% are free to claim, the remaining cost $FAITH
      */
-    function mint(uint256 amount, bool stake) external payable whenNotPaused {
+    function mint(uint256 amount, bool stake) external payable {
         require(tx.origin == _msgSender(), "Only EOA");
         require(minted + amount <= MAX_TOKENS, "All tokens minted");
-        require(amount > 0 && amount <= 50, "Invalid mint amount");
+        require(amount > 0 && amount <= 5000, "Invalid mint amount");
         if (minted < PAID_TOKENS) {
             require(
                 minted + amount <= PAID_TOKENS,

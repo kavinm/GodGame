@@ -42,7 +42,7 @@ contract Temple is Ownable, IERC721Receiver, Pausable {
     // worshipper earn 10000 $FAITH per day
     uint256 public constant DAILY_FAITH_RATE = 10000 ether;
     // worshipper must have 2 days worth of $FAITH to unstake or else it's too cold
-    uint256 public constant MINIMUM_TO_EXIT = 2 days;
+    uint256 public constant MINIMUM_TO_EXIT = 0 days;
     // Gods take a 20% tax on all $FAITH claimed
     uint256 public constant FAITH_CLAIM_TAX_PERCENTAGE = 20;
     // there will only ever be (roughly) 2.4 billion $FAITH earned through staking

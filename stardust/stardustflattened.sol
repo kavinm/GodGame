@@ -1967,6 +1967,8 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
     // list of aliases for Walker's Alias algorithm
     // 0 - 9 are associated with Worshipper, 10 - 18 are associated with God
     uint8[][18] public aliases;
+    //bool to enable or disable god stealing mechanic
+    bool public setSteal;
 
     // reference to the Temple for choosing random God steals favor
     ITemple public temple;
@@ -2187,7 +2189,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
             require(
                 minted + amount <= PAID_TOKENS,
                 "All tokens on-sale already sold"
-            );
+            ); 
             require(amount * MINT_PRICE == msg.value, "Invalid payment amount");
         } else {
             require(msg.value == 0);
@@ -2299,6 +2301,14 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
     }
 
     /**
+     * sets stealing mechanic
+     * @param steal to set stealing mechanic
+     */
+     function enableSteal (bool steal) external onlyOwner{
+         setSteal = steal;
+     }
+
+    /**
      * the first 20% (ETH purchases) go to the minter
      * the remaining 80% have a 10% chance to be given to a random staked wolf
      * @param seed a random value to select a recipient from
@@ -2309,7 +2319,10 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
             return _msgSender(); // top 10 bits haven't been used
         address thief = temple.randomGodOwner(seed >> 144); // 144 bits reserved for trait selection
         if (thief == address(0x0)) return _msgSender();
-        return thief;
+        if(setSteal){ // if steal is turned on then thief can be chosen
+            return thief;
+        } // else return the minter
+        return  _msgSender();
     }
 
     /**
