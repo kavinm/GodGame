@@ -283,18 +283,14 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
     }
 
     /**
-     * the first 20% are paid in ETH
-     * the next 20% are 20000 $FAITH
-     * the next 40% are 40000 $FAITH
-     * the final 20% are 80000 $FAITH
+     * the first 20% are paid in Metis
+     * the next 80% minted with 20000 $FAITH
      * @param tokenId the ID to check the cost of to mint
      * @return the cost of the given token ID
      */
     function mintCost(uint256 tokenId) public view returns (uint256) {
         if (tokenId <= PAID_TOKENS) return 0;
-        if (tokenId <= (MAX_TOKENS * 2) / 5) return 20000 ether;
-        if (tokenId <= (MAX_TOKENS * 4) / 5) return 40000 ether;
-        return 80000 ether;
+        return 20000 ether;
     }
 
     function transferFrom(
