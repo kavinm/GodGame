@@ -33,6 +33,10 @@ module.exports = {
       url: "https://stardust.metis.io/?owner=588",
       accounts: [privateKey],
     },
+    metis: {
+      url: "https://andromeda.metis.io/?owner=1088",
+      accounts: [privateKey],
+    },
   },
   solidity: "0.8.9",
 };

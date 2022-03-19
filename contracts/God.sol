@@ -11,7 +11,7 @@ import "./FAITH.sol";
 
 contract God is IGod, ERC721Enumerable, Ownable, Pausable {
     // mint price
-    uint256 public constant MINT_PRICE = .00001 ether;
+    uint256 public constant MINT_PRICE = .69 ether;
     // max number of tokens that can be minted - 50000 in production
     uint256 public immutable MAX_TOKENS;
     // number of tokens that can be claimed for free - 20% of MAX_TOKENS
@@ -250,7 +250,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
     function mint(uint256 amount, bool stake) external payable {
         require(tx.origin == _msgSender(), "Only EOA");
         require(minted + amount <= MAX_TOKENS, "All tokens minted");
-        require(amount > 0 && amount <= 50, "Invalid mint amount");
+        require(amount > 0 && amount <= 22, "Invalid mint amount");
         if (minted < PAID_TOKENS) {
             require(
                 minted + amount <= PAID_TOKENS,
@@ -372,7 +372,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
 
     /**
      * the first 20% (ETH purchases) go to the minter
-     * the remaining 80% have a 10% chance to be given to a random staked wolf
+     * the remaining 80% have a 10% chance to be given to a random staked GOD
      * @param seed a random value to select a recipient from
      * @return the address of the recipient (either the minter or the Wolf thief's owner)
      */
