@@ -11,7 +11,7 @@ import "./FAITH.sol";
 
 contract God is IGod, ERC721Enumerable, Ownable, Pausable {
     // mint price
-    uint256 public constant MINT_PRICE = .00001 ether;
+    uint256 public constant MINT_PRICE = .69 ether;
     // max number of tokens that can be minted - 50000 in production
     uint256 public immutable MAX_TOKENS;
     // number of tokens that can be claimed for free - 20% of MAX_TOKENS
@@ -22,6 +22,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
     // mapping from tokenId to a struct containing the token's traits
     mapping(uint256 => WorshipperGod) public tokenTraits;
     // mapping from hashed(tokenTrait) to the tokenId it's associated with
+    uint256 public constant ADMINT = 0 ether;
     // used to ensure there are no duplicates
     mapping(uint256 => uint256) public existingCombinations;
 
@@ -224,9 +225,10 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
             150,
             120,
             200,
-            160
+            160, 
+            140
         ];
-        aliases[14] = [1, 3, 9, 0, 10, 8, 8, 4, 1, 0, 6, 8];
+        aliases[14] = [1, 3, 9, 11, 10, 8, 8, 4, 1, 0, 6, 8, 12];
         // clothing    12039 >> 8 =
         rarities[15] = [140, 130, 165, 120, 100, 150, 160, 100];
         aliases[15] = [1, 4, 0, 6, 2, 3, 5, 3];
@@ -248,7 +250,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
     function mint(uint256 amount, bool stake) external payable {
         require(tx.origin == _msgSender(), "Only EOA");
         require(minted + amount <= MAX_TOKENS, "All tokens minted");
-        require(amount > 0 && amount <= 5000, "Invalid mint amount");
+        require(amount > 0 && amount <= 22, "Invalid mint amount");
         if (minted < PAID_TOKENS) {
             require(
                 minted + amount <= PAID_TOKENS,
@@ -283,18 +285,14 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
     }
 
     /**
-     * the first 20% are paid in ETH
-     * the next 20% are 20000 $FAITH
-     * the next 40% are 40000 $FAITH
-     * the final 20% are 80000 $FAITH
+     * the first 20% are paid in Metis
+     * the next 80% minted with 20000 $FAITH
      * @param tokenId the ID to check the cost of to mint
      * @return the cost of the given token ID
      */
     function mintCost(uint256 tokenId) public view returns (uint256) {
         if (tokenId <= PAID_TOKENS) return 0;
-        if (tokenId <= (MAX_TOKENS * 2) / 5) return 20000 ether;
-        if (tokenId <= (MAX_TOKENS * 4) / 5) return 40000 ether;
-        return 80000 ether;
+        return 20000 ether;
     }
 
     function transferFrom(
@@ -374,7 +372,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
 
     /**
      * the first 20% (ETH purchases) go to the minter
-     * the remaining 80% have a 10% chance to be given to a random staked wolf
+     * the remaining 80% have a 10% chance to be given to a random staked GOD
      * @param seed a random value to select a recipient from
      * @return the address of the recipient (either the minter or the Wolf thief's owner)
      */

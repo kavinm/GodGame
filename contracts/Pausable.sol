@@ -26,10 +26,10 @@ abstract contract Pausable is Context {
     bool private _paused;
 
     /**
-     * @dev Initializes the contract in unpaused state.
+     * @dev Initializes the contract in paused staking state.
      */
     constructor() {
-        _paused = false;
+        _paused = true;
     }
 
     /**
