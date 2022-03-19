@@ -22,6 +22,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
     // mapping from tokenId to a struct containing the token's traits
     mapping(uint256 => WorshipperGod) public tokenTraits;
     // mapping from hashed(tokenTrait) to the tokenId it's associated with
+    uint256 public constant ADMINT = 0 ether;
     // used to ensure there are no duplicates
     mapping(uint256 => uint256) public existingCombinations;
 
