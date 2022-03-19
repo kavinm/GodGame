@@ -225,9 +225,10 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
             150,
             120,
             200,
-            160
+            160, 
+            140
         ];
-        aliases[14] = [1, 3, 9, 0, 10, 8, 8, 4, 1, 0, 6, 8];
+        aliases[14] = [1, 3, 9, 11, 10, 8, 8, 4, 1, 0, 6, 8, 12];
         // clothing    12039 >> 8 =
         rarities[15] = [140, 130, 165, 120, 100, 150, 160, 100];
         aliases[15] = [1, 4, 0, 6, 2, 3, 5, 3];
@@ -249,7 +250,7 @@ contract God is IGod, ERC721Enumerable, Ownable, Pausable {
     function mint(uint256 amount, bool stake) external payable {
         require(tx.origin == _msgSender(), "Only EOA");
         require(minted + amount <= MAX_TOKENS, "All tokens minted");
-        require(amount > 0 && amount <= 5000, "Invalid mint amount");
+        require(amount > 0 && amount <= 50, "Invalid mint amount");
         if (minted < PAID_TOKENS) {
             require(
                 minted + amount <= PAID_TOKENS,
