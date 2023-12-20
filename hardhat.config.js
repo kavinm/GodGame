@@ -28,6 +28,12 @@ module.exports = {
     rinkeby: {
       url: "https://eth-rinkeby.alchemyapi.io/v2/iExNDawOnqHH63N9c0-2_o3NKqMUNAbU",
       accounts: [privateKey],
+      gas: 2100000,
+      gasPrice: 8000000000,
+    },
+    goerli: {
+    url: "https://rpc.goerli.eth.gateway.fm",
+    accounts: [privateKey],
     },
     stardust: {
       url: "https://stardust.metis.io/?owner=588",
