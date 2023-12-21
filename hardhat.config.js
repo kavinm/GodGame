@@ -1,6 +1,6 @@
 const { randomBytes } = require("@ethersproject/random");
-
 require("@nomiclabs/hardhat-waffle");
+require("@nomicfoundation/hardhat-verify");
 const fs = require("fs");
 const privateKey = fs.readFileSync(".secret").toString();
 
@@ -21,6 +21,14 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  * @type import('hardhat/config').HardhatUserConfig
  */
 module.exports = {
+  etherscan: {
+    apiKey: "4MFS661XQ1NAJVIFY5E1IETYZ1REJPHHDU",
+  },
+  sourcify: {
+    // Disabled by default
+    // Doesn't need an API key
+    enabled: true
+  },
   networks: {
     hardhat: {
       chainId: 1337,
@@ -32,7 +40,7 @@ module.exports = {
       gasPrice: 8000000000,
     },
     goerli: {
-    url: "https://rpc.goerli.eth.gateway.fm",
+    url: "https://goerli.infura.io/v3/64e835c6a8df4f0e80dda979cd6e9acb",
     accounts: [privateKey],
     },
     stardust: {
